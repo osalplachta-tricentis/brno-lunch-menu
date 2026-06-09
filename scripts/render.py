@@ -79,7 +79,7 @@ def render_page(menus: list[RestaurantMenu], generated_at: datetime) -> str:
 </head>
 <body>
 <header>
-  <h1>🍽️ Obědové menu — Vaňkovka &amp; okolí</h1>
+  <h1>🍽️ Obědové menu — Vlněna a okolí</h1>
   <div class="sub">Aktualizováno {escape(stamp)} (čas Brno)</div>
 </header>
 <main>
