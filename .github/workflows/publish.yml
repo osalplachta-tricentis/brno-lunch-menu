@@ -1,0 +1,55 @@
+name: Publish lunch menu
+
+# Builds the aggregated Brno lunch-menu page and publishes it to GitHub Pages.
+# Runs every working day at 09:00 Brno time. GitHub cron is UTC-only, so this is
+# scheduled at 07:00 UTC — exactly 09:00 during summer time (CEST). In winter
+# (CET) it runs at 08:00 local. Adjust the cron if year-round 09:00 matters.
+
+on:
+  schedule:
+    - cron: "0 7 * * 1-5" # 07:00 UTC, Mon–Fri
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write # deploy to GitHub Pages
+  id-token: write # OIDC token for the Pages deployment
+
+# Never let a scheduled run and a manual run publish at the same time.
+concurrency:
+  group: lunch-menu-publish
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build menu page
+        run: python scripts/main.py --output-dir _site
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

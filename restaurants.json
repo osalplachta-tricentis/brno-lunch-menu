@@ -1,0 +1,32 @@
+{
+  "restaurants": [
+    {
+      "name": "Potrefená husa Vaňkovka",
+      "site_url": "https://www.potrefenahusabrno.cz/",
+      "source_url": "https://www.potrefenahusabrno.cz/",
+      "parser": "tripoli_cms",
+      "menu_kind": "daily"
+    },
+    {
+      "name": "Tripoli Vaňkovka",
+      "site_url": "https://www.tripolivankovka.cz/",
+      "source_url": "https://www.tripolivankovka.cz/",
+      "parser": "tripoli_cms",
+      "menu_kind": "daily"
+    },
+    {
+      "name": "Delitree Bistro",
+      "site_url": "https://www.delitreebistro.cz/obedove-menu/",
+      "source_url": "https://www.delitreebistro.cz/obedove-menu/",
+      "parser": "delitree",
+      "menu_kind": "weekly"
+    },
+    {
+      "name": "Grand Kitchen Vlněna",
+      "site_url": "https://www.grandkitchenvlnena.cz/menu/",
+      "source_url": "https://www.menubot.cz/app/users/pcgkv21524598494946161846445/export/dailymenu_a.js?",
+      "parser": "grandkitchen",
+      "menu_kind": "daily"
+    }
+  ]
+}
