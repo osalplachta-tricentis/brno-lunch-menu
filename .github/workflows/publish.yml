@@ -1,13 +1,14 @@
 name: Publish lunch menu
 
 # Builds the aggregated Brno lunch-menu page and publishes it to GitHub Pages.
-# Runs every working day at 09:00 Brno time. GitHub cron is UTC-only, so this is
-# scheduled at 07:00 UTC — exactly 09:00 during summer time (CEST). In winter
-# (CET) it runs at 08:00 local. Adjust the cron if year-round 09:00 matters.
+# Runs every working day around 09:00 Brno time. GitHub cron is UTC-only, so this
+# is scheduled at 07:17 UTC — 09:17 during summer time (CEST). The odd minute
+# avoids GitHub Actions' top-of-hour schedule congestion. In winter (CET) it
+# runs at 08:17 local. Adjust the cron if year-round 09:00 matters.
 
 on:
   schedule:
-    - cron: "0 7 * * 1-5" # 07:00 UTC, Mon–Fri
+    - cron: "17 7 * * 1-5" # 07:17 UTC, Mon–Fri
   workflow_dispatch: {}
 
 permissions:
