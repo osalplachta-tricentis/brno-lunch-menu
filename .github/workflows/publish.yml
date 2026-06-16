@@ -8,7 +8,7 @@ name: Publish lunch menu
 
 on:
   schedule:
-    - cron: "17 7 * * 1-5" # 07:17 UTC, Mon–Fri
+    - cron: "0 0 * * *" # 00:00 UTC daily
   workflow_dispatch: {}
 
 permissions:
