@@ -20,6 +20,7 @@ scripts/
     tripoli_cms.py              # Potrefená husa + Tripoli (shared CMS)
     delitree.py                 # Delitree Bistro
     grandkitchen.py             # Grand Kitchen (menubot.cz feed)
+    menicka.py                  # menicka.cz iframe menus (Pivnice Masný růžek)
 output/                         # generated page (git-ignored)
 ```
 
