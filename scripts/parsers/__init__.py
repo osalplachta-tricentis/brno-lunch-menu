@@ -10,13 +10,14 @@ from __future__ import annotations
 
 from collections.abc import Callable
 
-from . import delitree, grandkitchen, tripoli_cms
+from . import delitree, grandkitchen, menicka, tripoli_cms
 
 # parser name -> callable(raw: str, ctx: dict) -> RestaurantMenu
 REGISTRY: dict[str, Callable] = {
     "tripoli_cms": tripoli_cms.parse,
     "delitree": delitree.parse,
     "grandkitchen": grandkitchen.parse,
+    "menicka": menicka.parse,
 }
 
 
